@@ -56,7 +56,7 @@ syn region markdownH4 matchgroup=markdownHeadingDelimiter start="#####\@!"   end
 syn region markdownH5 matchgroup=markdownHeadingDelimiter start="######\@!"  end="#*\s*$" keepend oneline contains=@markdownInline,markdownAutomaticLink contained
 syn region markdownH6 matchgroup=markdownHeadingDelimiter start="#######\@!" end="#*\s*$" keepend oneline contains=@markdownInline,markdownAutomaticLink contained
 
-syn match markdownBlockquote " \+>\%(\s\|$\)" contained nextgroup=@markdownBlock
+syn match markdownBlockquote " *>\%(\s\|$\)" contained nextgroup=@markdownBlock
 
 " TODO: real nesting
 syn match markdownListMarker "\%(\t\| \{0,4\}\)[-*+]\%(\s\+\S\)\@=" contained
@@ -122,7 +122,7 @@ hi def link markdownRule                  PreProc
 hi def link markdownFootnote              Typedef
 hi def link markdownFootnoteDefinition    Typedef
 
-"hi def link markdownLinkText              htmlLink
+" hi def link markdownLinkText              htmlLink
 hi def link markdownIdDeclaration         Typedef
 hi def link markdownId                    Type
 hi def link markdownAutomaticLink         markdownUrl
