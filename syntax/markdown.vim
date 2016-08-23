@@ -41,7 +41,7 @@ syn match markdownValid '&\%(#\=\w*;\)\@!'
 
 syn match markdownLineStart "^[<@]\@!" nextgroup=@markdownBlock,htmlSpecialChar
 
-syn cluster markdownBlock contains=markdownH1,markdownH2,markdownH3,markdownH4,markdownH5,markdownH6,markdownBlockquote,markdownListMarker,markdownOrderedListMarker,markdownCodeBlock,markdownRule
+syn cluster markdownBlock contains=markdownH1,markdownH2,markdownH3,markdownH4,markdownH5,markdownH6,markdownBlockquote,markdownListMarker,markdownOrderedListMarker,markdownRule
 syn cluster markdownInline contains=markdownLineBreak,markdownLinkText,markdownItalic,markdownBold,markdownCode,markdownEscape,@htmlTop,markdownError
 
 syn match markdownH1 "^.\+\n=\+$" contained contains=@markdownInline,markdownHeadingRule,markdownAutomaticLink
@@ -57,8 +57,6 @@ syn region markdownH5 matchgroup=markdownHeadingDelimiter start="######\@!"  end
 syn region markdownH6 matchgroup=markdownHeadingDelimiter start="#######\@!" end="#*\s*$" keepend oneline contains=@markdownInline,markdownAutomaticLink contained
 
 syn match markdownBlockquote ">\%(\s\|$\)" contained nextgroup=@markdownBlock
-
-syn region markdownCodeBlock start="    \|\t" end="$" contained contains=@Spell
 
 " TODO: real nesting
 syn match markdownListMarker "\%(\t\| \{0,4\}\)[-*+]\%(\s\+\S\)\@=" contained
