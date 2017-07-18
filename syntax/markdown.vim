@@ -88,6 +88,7 @@ exe 'syn region markdownLinkText matchgroup=markdownLinkTextDelimiter start="!\=
 exe 'syn region markdownLink matchgroup=markdownLinkDelimiter start="(" end=")" contains=markdownUrl keepend contained' . s:conceal
 exe 'syn region markdownId matchgroup=markdownIdDelimiter start="\[" end="\]" keepend contained' . s:conceal
 syn region markdownAutomaticLink matchgroup=markdownUrlDelimiter start="<\%(\w\+:\|[[:alnum:]_+-]\+@\)\@=" end=">" keepend oneline
+syn match markdownExtendedAutolink "\(http:\|https:\|ftp:\)\?//[^\t "'<>|]\+[A-Za-z0-9/]"
 
 syn region markdownCode matchgroup=markdownCodeDelimiter start="`" end="`" keepend contains=markdownLineStart
 syn region markdownCode matchgroup=markdownCodeDelimiter start="`` \=" end=" \=``" keepend contains=markdownLineStart
@@ -131,6 +132,7 @@ hi def link markdownFootnoteDefinition    Typedef
 hi def link markdownIdDeclaration         Typedef
 hi def link markdownId                    Type
 hi def link markdownAutomaticLink         markdownUrl
+hi def link markdownExtendedAutolink      markdownUrl
 hi def link markdownUrl                   Float
 hi def link markdownUrlTitle              String
 hi def link markdownIdDelimiter           markdownLinkDelimiter
